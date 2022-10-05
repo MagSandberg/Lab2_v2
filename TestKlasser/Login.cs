@@ -36,7 +36,21 @@ public class Login
             {
                 if (CheckIfUserPasswordExists(user.Password))
                 {
+                    Bool.LoginMenu = false;
+                    Bool.StoreMenu = true;
                     return true;
+                }
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Fel lösenord! Vänligen försök igen.\n");
+                    LoginFields(); //Name, Password
+                    if (CheckIfUserPasswordExists(user.Password))
+                    {
+                        Bool.LoginMenu = false;
+                        Bool.StoreMenu = true;
+                        return true;
+                    }
                 }
             }
         }
@@ -73,7 +87,7 @@ public class Login
 
     public static void VerifyQuit()
     {
-        Console.WriteLine("Är du säker?\nTryck J för att avsluta eller valfri tangent för att gå tillbaka\n");
+        Console.WriteLine("Avsluta, är du säker?\nTryck J för att avsluta eller valfri tangent för att gå tillbaka\n");
         var verifyQuit = Console.ReadKey();
         if (verifyQuit.Key == ConsoleKey.J)
         {

@@ -34,19 +34,17 @@ public class StoreMethod
             Customer.Cart.AddRange(DataSource.Stock.FindAll(p => p.Id == prodId));
         }
     }
-
     public static void PrintCart()
     {
         double totalSum = 0;
         foreach (var p in Customer.Cart)
         {
-            Console.WriteLine($"Produkt: {p.Name} | Pris: {p.Price} | Antal: {p.Qty} | Totalpris: {string.Format("{0:0.00}", p.Qty * p.Price)}");
+            Console.WriteLine($"Produkt: {p.Name} | Styckpris: {p.Price} | Antal: {p.Qty} | Totalpris: {string.Format("{0:0.00}", p.Qty * p.Price)}");
             totalSum += p.Qty * p.Price;
         }
 
-        Console.WriteLine($"\nPris totalt: {string.Format("{0:0.00}", totalSum)}");
+        Console.WriteLine($"\nPris för hela kundvagnen: {string.Format("{0:0.00}", totalSum)}");
     }
-
     public static void ProductDisplay()
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -73,7 +71,7 @@ public class StoreMethod
     }
     public static void VerifyLogout()
     {
-        Console.WriteLine("Är du säker?\nTryck J för att avsluta eller valfri tangent för att gå tillbaka\n");
+        Console.WriteLine("Logga ut, är du säker?\nTryck J för att avsluta eller valfri tangent för att gå tillbaka\n");
         var verifyQuit = Console.ReadKey();
         if (verifyQuit.Key == ConsoleKey.J)
         {

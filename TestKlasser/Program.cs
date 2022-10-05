@@ -22,7 +22,7 @@ while (true)
         StoreMenu(); //Lägg till eller ta bort produkter, kundvagn, kassa
     }
 }
-
+//KOM P ÅETT SÄTT ATT RENSA KUNDVAGNEN OM EN ANNAN ANVÄNDARE LOGGAR IN
 void LoginMenu()
 {
 
@@ -47,11 +47,7 @@ void LoginMenu()
 
                 ChangeTextColor("Green.Login");
                 userLogin.LoginFields();
-                if (userLogin.CheckIfUserExists())
-                {
-                    Bool.LoginMenu = false;
-                    Bool.StoreMenu = true;
-                }
+                userLogin.CheckIfUserExists();
                 break;
 
             case ConsoleKey.D2:
