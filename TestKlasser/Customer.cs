@@ -16,4 +16,15 @@ public class Customer
         Password = password;
         _cart = new List<Product>();
     }
+
+    public override string ToString()
+    {
+        var customerCart = string.Empty;
+        foreach (var p in _cart)
+        {
+            customerCart += $"[{p.Id}] | ".ToString();
+            customerCart += $"{p.Name}".ToString();
+        }
+        return $"Namn: {Name} | Lösenord: {Password} | Kundvagn: {customerCart}";
+    }
 }

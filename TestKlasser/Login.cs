@@ -17,6 +17,7 @@ public class Login
     };
 
     //Method
+
     public void LoginFields()
     {
         Console.Write("Fyll i namn: ");
